@@ -6,8 +6,9 @@ import App from "./App";
 import { createStore } from "redux";
 import reducer from "./components/store/reducer";
 import { Provider } from "react-redux";
+import { createDevTools } from '@redux-devtools/core';
 
-const myStore = createStore(reducer);
+const myStore = createStore(reducer, createDevTools);
 
 ReactDOM.render(
   <Provider store={myStore}>

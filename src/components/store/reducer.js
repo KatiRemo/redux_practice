@@ -12,7 +12,7 @@ const initialState = {
       id: 2,
       title: "Clean app",
       task: "Delete and clean unnecessary stuff",
-      done: true,
+      done: false,
     },
     {
       id: 3,
