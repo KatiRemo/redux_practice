@@ -1,7 +1,6 @@
 import * as actionTypes from "./actions";
 
 const initialState = {
-  something: "yeiii",
   notes: [
     {
       id: 1,
@@ -21,12 +20,6 @@ const initialState = {
       task: "Create new file and use React.createContext()",
       done: false,
     },
-    {
-      id: 4,
-      title: "awesome task",
-      task: "somethiiing",
-      done: false,
-    },
   ],
 };
 
@@ -43,6 +36,13 @@ const reducer = (state = initialState, action) => {
           },
         ],
       };
+      case actionTypes.REMOVE_TODO:
+        const updatedArray = state.notes.filter((item) => item.id !== action.payload);
+        return {
+          ...state,
+          notes: updatedArray,
+        };
+
     default:
       return state;
   }

@@ -1,12 +1,18 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import classes from "./TodoList.module.css";
+import * as actionTypes from "../store/actions"
 
 const TodoList = () => {
   const notes = useSelector((state) => state.notes);
 
+  const dispatch = useDispatch();
+
   const removeHandler = (id) => {
-    console.log(id, "was clicked");
+    dispatch({
+      type: actionTypes.REMOVE_TODO,
+      payload: id,
+    });
   };
 
   const doneHandler = (id) => {

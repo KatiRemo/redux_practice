@@ -10,7 +10,7 @@
 }
 
 .todo {
-  border: 1px solid #ccc;
+  border: 1px solid #333;
   margin: 0.5rem 0;
   padding: 0.5rem;
   position: relative;
@@ -19,14 +19,14 @@
 
 .todo.done h2,
 .todo.done p {
-  background-color: #03202a;
+  background-color: #838996;
   opacity: 0.5;
   text-decoration: line-through;
 }
 
 .delete {
   position: absolute;
-  color: #4ea9cc;
+  color: #8878c3;
   top: 20px;
   right: 20px;
   cursor: pointer;
