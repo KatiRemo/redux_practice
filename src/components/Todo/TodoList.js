@@ -5,7 +5,6 @@ import * as actionTypes from "../store/actions"
 
 const TodoList = () => {
   const notes = useSelector((state) => state.notes);
-
   const dispatch = useDispatch();
 
   const removeHandler = (id) => {
@@ -16,7 +15,10 @@ const TodoList = () => {
   };
 
   const doneHandler = (id) => {
-    console.log(id, "was clicked");
+    dispatch({
+      type: actionTypes.DONE_TODO,
+      payload: id,
+    });
   };
 
   return (
