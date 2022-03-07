@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
+
 import classes from "./TodoList.module.css";
 import * as actionTypes from "../store/actions"
 
@@ -10,6 +11,7 @@ const TodoList = () => {
   const dispatch = useDispatch();
   const [filteredValue, setFilteredValue] = useState();
   const [filterList, setFilterList] = useState(notes);
+  const [search, setSearch] = useState("");
 
   const removeHandler = (id) => {
     dispatch({
@@ -53,7 +55,14 @@ const TodoList = () => {
         <option value="false">Not done</option>
         <option value="all">All</option>
       </select>
+      <br></br>
+      <label><strong>Search tasks </strong></label><input id="search" onChange={(e) => setSearch(e.target.value.toLowerCase())} />
+      {console.log(search)}
       {filterList.map((note) => {
+         if(
+          note.title.toLowerCase().includes(search) ||
+          note.task.toLowerCase().includes(search)
+        ) {
         return (
           <div
             onClick={() => doneHandler(note.id)}
@@ -72,7 +81,7 @@ const TodoList = () => {
             </span>
           </div>
         );
-      })}
+  }})}
     </div>
   );
 };
