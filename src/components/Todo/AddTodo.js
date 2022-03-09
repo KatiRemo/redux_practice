@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createNote } from '../store/reducer';
+
 import classes from "./AddTodo.module.css";
 import Button from "../UI/Button";
 
-import { useDispatch } from "react-redux";
 import * as actionTypes from "../store/actions";
 
 const AddTodo = () => {
@@ -20,11 +22,7 @@ const AddTodo = () => {
 
   const addHandler = (e) => {
     e.preventDefault();
-    console.log(todo);
-    dispatch({
-      type: actionTypes.ADD_TODO,
-      payload: todo,
-    });
+    dispatch(createNote(todo));
   };
 
   return (
