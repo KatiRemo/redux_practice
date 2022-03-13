@@ -8,8 +8,29 @@ const TodoList = () => {
   const notes = useSelector((state) => state);
   const [filteredValue, setFilteredValue] = useState();
   const [filterList, setFilterList] = useState(notes);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if(filteredValue === 'true') {
+      setFilterList(notes.filter((item) => item.done === !!filteredValue));
+    }
+    else if (filteredValue === 'false') {
+      setFilterList(notes.filter((item) => item.done !== !!filteredValue));
+    }
+    else {
+      setFilterList(notes);
+    }
+  }, [filteredValue, notes]);
+
+  useEffect(() => {
+    if(search === '') {
+      setFilterList(notes) ;
+    }
+    else {
+      setFilterList(notes.filter((note) => note.title.includes(search)));
+    }
+  }, [search, notes]);
 
   const removeHandler = (id) => {
     dispatch({
@@ -24,28 +45,6 @@ const TodoList = () => {
       payload: id,
     });
   };
-
-  useEffect(() => {
-    if (filteredValue === "true") {
-      setFilterList(
-        notes.filter((item) => item.done === !!filteredValue));
-    }
-    else if (filteredValue === "false") {
-      setFilterList(
-        notes.filter((item) => item.done !== !!filteredValue));
-    }
-    else {
-      setFilterList(notes);
-    }
-  }, [filteredValue, notes]);
-
-  useEffect(() => {
-    if (search === '') {
-      setFilterList(notes);
-    } else {
-      setFilterList(notes.filter((note) => note.title.includes(search)));
-    }
-  }, [search, notes]);
 
   const searchHandler = (e) => {
     setSearch(e.target.value);

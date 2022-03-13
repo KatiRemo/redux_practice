@@ -17,6 +17,18 @@
         "title": "Create store / context",
         "task": "Create new file and use React.createContext()",
         "done": false
+      },
+      {
+        "id": 4,
+        "title": "IS IT ACTUALLY COMING FROM db.json????",
+        "task": "somethiiing",
+        "done": false
+      },
+      {
+        "id": 5,
+        "title": "Kati",
+        "task": "testiiing",
+        "done": false
       }
     ]
 }

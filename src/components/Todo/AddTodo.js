@@ -8,7 +8,7 @@ import Button from "../UI/Button";
 import * as actionTypes from "../store/actions";
 
 const AddTodo = () => {
-  const [todo, setTodo] = useState({ title: "", task: "" });
+  const [todo, setTodo] = useState({ title: '', task: '' });
   const dispatch = useDispatch();
 
   const changeHandler = (e) => {
