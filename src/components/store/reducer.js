@@ -15,6 +15,7 @@ const reducer = (state = [], action) => {
         ...state,
         notes: updateArray,
       };
+
     case actionTypes.DONE_TODO:
       const doneToggle = state.notes.map((item) => {
         return item.id === action.payload
